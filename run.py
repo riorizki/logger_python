@@ -23,7 +23,7 @@ mycursor = mydb.cursor()
 def insert_data(data):
     dictData = Payload(data)
 
-    sql = "INSERT INTO tb_log (calculated_engine_load, engine_rpm, intake_air_temperature, relative_throttle_position, throttle_position, vehicle_speed, warm_up_since_codes_cleared, timing_advance, time_since_trouble_codes_cleared, time_run_with_mil_on, short_term_fuel_bank, run_time_since_engine_start, oxygen_sensor_present, control_module_voltage, absolute_barometric_pressure, absolute_load_value, latitude, longitude, altitude, heading, speed_gps, timestamp) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    sql = "INSERT INTO tb_log (calculated_engine_load, engine_rpm, intake_air_temperature, relative_throttle_position, throttle_position, vehicle_speed, warm_up_since_codes_cleared, timing_advance, time_since_trouble_codes_cleared, time_run_with_mil_on, short_term_fuel_bank, run_time_since_engine_start, oxygen_sensor_present, control_module_voltage, absolute_barometric_pressure, absolute_load_value, latitude, longitude, altitude, heading, speed_gps, timestamp, accX, accY, accZ, gyX, gyY, gyZ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
     val = (dictData.CalculatedEngineLoad,
            dictData.EngineRpm,
@@ -46,7 +46,19 @@ def insert_data(data):
            dictData.Altitude,
            dictData.Heading,
            dictData.SpeedGps,
-           dictData.Timestamp)
+           dictData.Timestamp,
+           dictData.Heading,
+           dictData.SpeedGps,
+           dictData.Timestamp,
+           dictData.Heading,
+           dictData.SpeedGps,
+           dictData.Timestamp,
+           dictData.AccX,
+           dictData.AccY,
+           dictData.AccZ,
+           dictData.GyX,
+           dictData.GyY,
+           dictData.GyZ)
 
     mycursor.execute(sql, val)
     mydb.commit()

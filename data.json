@@ -20,5 +20,11 @@
   "Altitude": "4",
   "Heading": "5",
   "SpeedGps": "3",
-  "Timestamp": "3333"
+  "Timestamp": "3333",
+  "AccX": "2",
+  "AccY": "2",
+  "AccZ": "2",
+  "GyX": "2",
+  "GyY": "2",
+  "GyZ": "2"
 }
